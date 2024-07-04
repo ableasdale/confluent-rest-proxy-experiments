@@ -10,7 +10,7 @@ Start the containers:
 docker container prune -f && docker-compose up
 ```
 
-### Warning about security
+### Warning regarding security in this project
 
 Note that the purposes of this repository is to test using ReST Proxy against an existing cluster; we've used a few convenience shortcuts (such as `KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND` and assigning the anonymous user to `KAFKA_SUPER_USERS`).  These are intended for testing - do not use the provided Docker configuration in production without building security into the project.
 
