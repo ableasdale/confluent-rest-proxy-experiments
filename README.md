@@ -31,7 +31,7 @@ curl localhost:8082/v3/clusters/ZWe3nnZwTrKSM0aM2doAxQ/acls | jq
 Create some topics
 
 ```bash
-for topicName in a b c d e f; do
+for topicName in a b c d e f g h i j k l m n o p q r s t u v w x y z; do
   curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" --data '{"topic_name": "topic_'$topicName'", "partitions_count": 3, "replication_factor": 3}' "http://localhost:8082/v3/clusters/ZWe3nnZwTrKSM0aM2doAxQ/topics"
 done 
 ```
@@ -39,17 +39,10 @@ done
 Add ACLs to those topics
 
 ```bash
-for topicName in a b c d e f; do
-  curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" --data '{ \
-            "resource_type": "TOPIC", \
-            "resource_name": "'$topicName'", \
-            "pattern_type": "LITERAL", \
-            "principal": "principalType:principalName", \
-            "host": "*", \
-            "operation": "READ", \
-            "permission": "ALLOW" \
-        }' "http://localhost:8082/v3/clusters/ZWe3nnZwTrKSM0aM2doAxQ/acls"
-done 
+for topicName in a b c d e f g h i j k l m n o p q r s t u v w x y z; do
+  curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" --data '{ "resource_type": "TOPIC", "resource_name": "'$topicName'", "pattern_type": "LITERAL", "principal": "principalType:principalName", "host": "*", "operation": "READ",  "permission": "ALLOW"}' "http://localhost:8082/v3/clusters/ZWe3nnZwTrKSM0aM2doAxQ/acls"
+done
+time 
 ```
 
 
