@@ -26,10 +26,6 @@ services:
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: 'true'   
       KAFKA_SUPER_USERS: User:broker;User:ANONYMOUS
 
-# - name: KAFKA_REST_RESOURCE_EXTENSIONCLASS
-        #   value: io.confluent.kafkarest.security.KafkaRestSecurityResourceExtension
-#kafka.rest.resource.extension.class=io.confluent.kafkarest.security.KafkaRestSecurityResourceExtension
-
   broker2:
     image: confluentinc/cp-server:${CP_TAG}
     hostname: broker2
